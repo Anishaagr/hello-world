@@ -1,27 +1,10 @@
 ---
- - hosts: localhost
-   tasks:
-   - name: Install nginx
-     apt: pkg=nginx state=latest update_cache=yes
-     notify: start nginx service
-
-   - name: Uplaod default html file index.php
-     copy: src=/home/master/ansible_project/static_file/index.php dest=/var/www/html/ mode=0644
-     register: php
-     ignore_errors: yes
-
-   - name: File exists or not
-     stat: path=/var/www/html/index1.html
-     register: state_result
-
-   - name: remove index.html file for host
-     command: rm /var/www/html/index1.html
-     when: php is success and state_result.stat.exists==true
-
-   - name: upload default index1.html file for host
-     copy: src=/home/master/ansible_project/static_file/index1.html dest=/var/www/html/ mode=0644
-     when: php is failed
-   
-    handlers:
-    - name: start nginx service
-      service: name=nginx state=started
+  - name: Download files from URL and copy file to Remote
+    hosts: host1
+    vars:
+      date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+    tasks:
+      - name: download mp4 files
+        get_url:
+          url: https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4
+          dest: '/var/lib/awx/video-{{date}}.mp4'
