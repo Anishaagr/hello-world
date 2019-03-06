@@ -1,6 +1,6 @@
 ---
   - name: Download files from URL and copy file to Remote
-    hosts: local
+    hosts: all
     vars:
       date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
     tasks:
