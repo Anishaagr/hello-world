@@ -1,2 +1,2 @@
 [localhost]
-local ansible_host=10.115.119.4 anisble_user=master ansible_pass=system 
+ansible_connection=local
