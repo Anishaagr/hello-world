@@ -1,8 +1,8 @@
 ---
   - hosts: localhost1
     tasks:
-    - name: install apache2
-      apt: name=nginx state=present
+#     - name: install apache2
+#       apt: name=nginx state=present
     - name: copy temprory file
       copy: src=/home/master/tmp/temp.txt dest=/home/master/local/temp1.txt
       notify:
