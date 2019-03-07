@@ -1,0 +1,14 @@
+---
+  - hosts: localhost1
+    tasks:
+    - name: install apache2
+      apt: name=apache2 state=present
+    - name: copy temprory file
+      copy: src=/home/master/tmp/temp.txt dest=/home/master/local/temp1.txt
+      notify:
+      - restart apache2
+    - name: restart and enable apache service
+      service: name=apache2 state=restarted enabled=yes
+    handlers:
+      - name: restart apache2
+        service: name=apache2 state=restarted
