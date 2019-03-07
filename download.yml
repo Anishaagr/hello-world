@@ -5,6 +5,8 @@
       date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
     tasks:
       - name: download mp4 files
-        get_url:
-          url: https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4
-          dest: '/home/master/local/video-{{date}}.mp4'
+        debug:
+         msg: "{{date}}"
+#         get_url:
+#           url: https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4
+#           dest: '/home/master/local/video-{{date}}.mp4'
