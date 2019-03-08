@@ -6,10 +6,11 @@
       apt: name=nginx state=present
 #     - name: copy temprory file
 #       copy: src=/home/master/local/text.txt dest=/home/master/local/temp1.txt
-      notify:
-      - restart nginx
+     # notify:
+     # - restart nginx
 #     - name: restart and enable nginx service
 #       service: name=nginx state=restarted enabled=yes
-    handlers:
-      - name: restart nginx
-        service: name=nginx state=restarted
+   # handlers:
+   
+     - name: restart nginx
+       service: name=nginx state=restarted
