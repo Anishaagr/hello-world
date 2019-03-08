@@ -4,6 +4,9 @@
     tasks:
     - name: install nginx
       apt: name=nginx state=present
+      
+    - name: restart nginx
+      service: name=nginx state=restarted
 #     - name: copy temprory file
 #       copy: src=/home/master/local/text.txt dest=/home/master/local/temp1.txt
      # notify:
@@ -12,5 +15,4 @@
 #       service: name=nginx state=restarted enabled=yes
    # handlers:
    
-     - name: restart nginx
-       service: name=nginx state=restarted
+    
